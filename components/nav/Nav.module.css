@@ -1,0 +1,82 @@
+.link {
+  text-decoration: none;
+}
+.nav {
+  padding: 5px 8%;
+  /* background-color: rgba(0, 128, 0, 0.231); */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 2%;
+}
+
+.ul {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  text-decoration: none;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.button {
+  background-color: #ff4075;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  z-index: 999;
+}
+.w {
+  background-color: #0479ff;
+}
+
+.button::after {
+  content: "";
+  width: 0%;
+  height: 100%;
+  /* background: linear-gradient(to right, #558b2d, #558b2d); */
+  background-color: #60e041;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  border-radius: 2px;
+  transition: 0.5s;
+  z-index: -998;
+}
+.button:hover:after {
+  width: 100%;
+}
+.icon {
+  /* background-color: green; */
+  padding: 1px 2px;
+  font-family: "voyage";
+  font-weight: 600;
+  font-size: 3em;
+  position: relative;
+  letter-spacing: 2px;
+  color: #00044a;
+}
+.span1 {
+  font-size: 10px;
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  letter-spacing: normal;
+}
+.span {
+  position: absolute;
+  top: -10%;
+  left: 10%;
+}
