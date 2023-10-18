@@ -11,12 +11,26 @@ const Nav = () => {
         </div>
       </Link>
       <ul className={styles.ul}>
-        <li>Home</li>
-        <li>Canditates</li>
-        <li>About</li>
-        <li>Contact</li>
+        <Link className={styles.link} href="/">
+          {" "}
+          <li className={styles.li}>Home</li>
+        </Link>
+        <Link className={styles.link} href="#">
+          <li className={styles.li}>Canditates</li>
+        </Link>
+        <Link className={styles.link} href="#">
+          {" "}
+          <li className={styles.li}>About</li>{" "}
+        </Link>
+        <Link className={styles.link} href="#">
+          <li className={styles.li}>Contact</li>
+        </Link>
         <button className={styles.button}>Post a Job</button>
-        <button className={`${styles.w} ${styles.button} `}>Want a Job</button>
+        <Link href="/student">
+          <button className={`${styles.w} ${styles.button} `}>
+            Want a Job
+          </button>
+        </Link>
       </ul>
     </div>
   );
