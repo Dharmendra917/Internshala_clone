@@ -11,3 +11,13 @@ body {
   height: 100%;
   overflow-x: hidden;
 }
+
+/* for link  */
+.link {
+  text-decoration: none;
+}
+.forget {
+  align-self: flex-end;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
