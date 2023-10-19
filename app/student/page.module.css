@@ -19,7 +19,6 @@
 .image {
   width: 90%;
   height: 80%;
-  /* object-fit: cover; */
   border-radius: 20px;
 }
 .right {
@@ -91,4 +90,49 @@
 .registered {
   opacity: 0.6;
   font-weight: 600;
+  margin: 5% 0;
+}
+
+/* responsive ui  */
+@media (max-width: 767px) {
+  .main {
+    display: grid;
+    height: 100%;
+    /* flex-wrap: wrap; */
+  }
+  .left {
+    margin: 1%;
+    width: 100%;
+  }
+  .right {
+    margin: 1%;
+    width: 100%;
+  }
+  .button {
+    width: 100%;
+  }
+}
+@media (max-width: 460px) {
+  .main {
+    display: grid;
+    height: 100%;
+    flex-wrap: wrap;
+  }
+  .left {
+    margin: 1%;
+    width: 100%;
+  }
+  .right {
+    margin: 1%;
+    width: 100%;
+  }
+  .h2 {
+    font-size: 40px;
+    font-weight: 600;
+  }
+  .button {
+    width: 100%;
+    /* font-weight: 500; */
+    font-size: 14px;
+  }
 }
