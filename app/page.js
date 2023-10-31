@@ -1,16 +1,20 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Home from "@/components/home/Home";
-export const metadata = {
-  title: "Homepage",
-};
+import { asynccurrentstudent } from "@/store/Actions/studentActions";
+import { useDispatch } from "react-redux";
+
+// export const metadata = {
+//   title: "Homepage ",
+// };
 
 const page = () => {
+  const dispatch = useDispatch();
+
   return (
     <div>
       <Home />
-      {/* <Link href="/student">Student</Link> <br />
-      <Link href="/employe">Employe</Link> */}
     </div>
   );
 };

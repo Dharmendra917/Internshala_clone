@@ -25,10 +25,10 @@ const Home = () => {
         <div className={styles.right}>
           <Image
             src="/homebackground.jpg"
-            // layout="responsive"
             width={1920}
             height={1080}
             alt="HomeImage"
+            priority={true} // {false} | {true}
             className={styles.Image}
           />
         </div>

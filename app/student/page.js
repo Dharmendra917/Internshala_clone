@@ -1,12 +1,41 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
-export const metadata = {
-  title: "Student | Homepage",
-};
+import { useDispatch } from "react-redux";
+import { asyncsiginstudent } from "@/store/Actions/studentActions";
+
+//  export const metadata = {
+//   title: "Student | Homepage",
+// };
 
 const page = () => {
+  const [student, setstudent] = useState({
+    email: "",
+    password: "",
+  });
+
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+    setstudent({
+      ...student,
+      [name]: value,
+    });
+  };
+
+  const dispatch = useDispatch();
+  const submitHandler = (event) => {
+    event.preventDefault();
+    const login = student;
+    dispatch(asyncsiginstudent(student));
+    console.log(student);
+    setstudent({
+      email: "",
+      password: "",
+    });
+  };
+
   return (
     <div className="container mt-4">
       <div className={styles.main}>
@@ -16,7 +45,8 @@ const page = () => {
             // layout="responsive"
             width={1920}
             height={1080}
-            alt="HomeImage"
+            alt="signImage"
+            priority={true} // {false} | {true}
             className={styles.image}
           />
         </div>
@@ -24,16 +54,22 @@ const page = () => {
           <div className={styles.form}>
             <h2 className={styles.h2}>Hello Again!</h2>
 
-            <form className={styles.formcontrol} action="">
+            <form className={styles.formcontrol} onSubmit={submitHandler}>
               <input
                 className={styles.input}
                 type="email"
                 placeholder="Enter Email"
+                name="email"
+                value={student.email}
+                onChange={changeHandler}
               />
               <input
                 className={styles.input}
                 type="password"
                 placeholder="Your Password"
+                name="password"
+                value={student.password}
+                onChange={changeHandler}
               />
               <Link className="link forget" href="#">
                 {" "}
