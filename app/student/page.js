@@ -27,9 +27,7 @@ const page = () => {
   const dispatch = useDispatch();
   const submitHandler = (event) => {
     event.preventDefault();
-    const login = student;
     dispatch(asyncsiginstudent(student));
-    console.log(student);
     setstudent({
       email: "",
       password: "",
