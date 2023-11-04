@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { asyncsiginstudent } from "@/store/Actions/studentActions";
+import { useRouter } from "next/navigation";
 
 //  export const metadata = {
 //   title: "Student | Homepage",
@@ -33,6 +34,14 @@ const page = () => {
       password: "",
     });
   };
+
+  const { isAuthenticated } = useSelector((state) => state.studentReducer);
+  const router = useRouter();
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push("/auth/");
+    }
+  }, [isAuthenticated]);
 
   return (
     <div className="container mt-4">

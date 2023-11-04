@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { asyncsignupstudent } from "@/store/Actions/studentActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
 
 // export const metadata = {
 //   title: "Student | Signup-Page",
@@ -41,6 +42,14 @@ const page = () => {
     //   gender: "Male",
     // });
   };
+
+  const { isAuthenticated } = useSelector((state) => state.studentReducer);
+  const router = useRouter();
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push("/student/auth");
+    }
+  }, [isAuthenticated]);
 
   return (
     <div className={styles.main}>
