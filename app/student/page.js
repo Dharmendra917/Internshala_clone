@@ -39,7 +39,7 @@ const page = () => {
   const router = useRouter();
   useEffect(() => {
     if (isAuthenticated) {
-      router.push("/auth/");
+      router.push("/auth");
     }
   }, [isAuthenticated]);
 

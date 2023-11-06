@@ -1,9 +1,7 @@
 "use client";
 import { asyncsignoutstudent } from "@/store/Actions/studentActions";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 // export const metadata = {
 //   title: "Student | HomePage",
@@ -16,13 +14,6 @@ const page = () => {
     dispatch(asyncsignoutstudent());
   };
 
-  const { isAuthenticated } = useSelector((state) => state.studentReducer);
-  const router = useRouter();
-  useEffect(() => {
-    if (!isAuthenticated) {
-      router.push("/");
-    }
-  }, [!isAuthenticated]);
   return (
     <div>
       Authenticated studnet page <br />
