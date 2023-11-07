@@ -1,7 +1,6 @@
 "use client";
-import { asyncsignoutstudent } from "@/store/Actions/studentActions";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // export const metadata = {
 //   title: "Student | HomePage",
@@ -9,15 +8,9 @@ import { useDispatch } from "react-redux";
 // };
 
 const page = () => {
-  const dispatch = useDispatch();
-  const signoutHandler = () => {
-    dispatch(asyncsignoutstudent());
-  };
-
   return (
     <div>
       Authenticated studnet page <br />
-      <button onClick={signoutHandler}>signout</button>
     </div>
   );
 };

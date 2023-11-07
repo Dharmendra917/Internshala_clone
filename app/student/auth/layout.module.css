@@ -1,3 +1,7 @@
+.Link {
+  text-decoration: none;
+  color: #00044a;
+}
 .nav {
   background-color: rgba(245, 245, 245, 0.267);
   display: flex;
@@ -6,14 +10,32 @@
   padding: 2px 5%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.26);
   font-family: "gilroy";
+  position: relative;
 }
 .center {
   display: flex;
+  gap: 15px;
   color: #00044a;
 }
 .center h3 {
   margin: 0% 5%;
   font-size: 20px;
+  color: #00044a;
+  font-weight: 600;
+  position: relative;
+}
+.center h3::after {
+  content: "";
+  width: 0px;
+  height: 2px;
+  background-color: #00044a;
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  transition: 0.7s;
+}
+.center h3:hover::after {
+  width: 100%;
 }
 .right {
   display: flex;
@@ -71,9 +93,10 @@
 .profile .image {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 .right i {
-  font-size: 25px;
+  font-size: 20px;
   color: #00044a;
   cursor: pointer;
 }
@@ -88,4 +111,33 @@
 }
 #notification:hover {
   background-color: rgba(228, 227, 227, 0.623);
+}
+.menu {
+  position: absolute;
+  display: none;
+  right: 5%;
+  top: 90%;
+  padding: 5px 1%;
+  background-color: rgba(245, 245, 245, 0.495);
+  margin: 1px;
+}
+.menu h5 {
+  color: #00044a;
+  padding: 5px 10px;
+  font-size: 18px;
+  position: relative;
+}
+.menu h5::after {
+  content: "";
+  width: 0%;
+  height: 5%;
+  background: linear-gradient(to right, #00044a, #00044a09);
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  transition: 0.5s;
+}
+.menu h5:hover:after {
+  width: 100%;
+  color: #00044aad;
 }
