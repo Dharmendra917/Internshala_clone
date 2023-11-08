@@ -74,10 +74,10 @@ const Student = ({ children }) => {
               </div>
             </div>
           </div>
-          <div className={styles.inner_right} id={styles.notification}>
+          <div className={`${styles.inner_right}`} id={styles.notification}>
             <i class="ri-notification-fill"></i>
           </div>
-          <div className={styles.inner_right}>
+          <div className={`${styles.inner_right} `}>
             <div onClick={menuHandler} className={styles.profile}>
               <img
                 src={student && student.avatar.url}
@@ -95,7 +95,7 @@ const Student = ({ children }) => {
           style={{ display: isDivVisible ? "block" : "none" }}
         >
           <h5>
-            <Link className={styles.Link} href="">
+            <Link className={styles.Link} href="/student/auth/profile">
               Profile
             </Link>
           </h5>
@@ -109,6 +109,72 @@ const Student = ({ children }) => {
               Signout
             </Link>{" "}
           </h5>
+        </div>
+
+        <div className={styles.notification_menu}>
+          <div className={styles.inner_notification_menu}>
+            <h4>Notifications</h4>
+            <p>
+              <Link className={`${styles.Link}`} href="#">
+                xyz compnay trying to connect you
+              </Link>
+            </p>
+            <p>
+              <Link className={`${styles.Link}`} href="#">
+                xyz compnay trying to connect you
+              </Link>
+            </p>
+            <p>
+              <Link className={`${styles.Link}`} href="#">
+                xyz compnay trying to connect you
+              </Link>
+            </p>
+            <p>
+              <Link className={`${styles.Link}`} href="#">
+                xyz compnay trying to connect you
+              </Link>
+            </p>
+            <p>
+              <Link className={`${styles.Link}`} href="#">
+                xyz compnay trying to connect you
+              </Link>
+            </p>
+            <p>
+              <Link className={`${styles.Link}`} href="#">
+                xyz compnay trying to connect you
+              </Link>
+            </p>
+            <p>
+              <Link className={`${styles.Link}`} href="#">
+                xyz compnay trying to connect you
+              </Link>
+            </p>
+            <p>
+              <Link className={`${styles.Link}`} href="#">
+                xyz compnay trying to connect you
+              </Link>
+            </p>
+            <p>
+              <Link className={`${styles.Link}`} href="#">
+                xyz compnay trying to connect you
+              </Link>
+            </p>
+            <p>
+              <Link className={`${styles.Link}`} href="#">
+                xyz compnay trying to connect you
+              </Link>
+            </p>
+            <p>
+              <Link className={`${styles.Link}`} href="#">
+                xyz compnay trying to connect you
+              </Link>
+            </p>
+            <p>
+              <Link className={`${styles.Link}`} href="#">
+                xyz compnay trying to connect you
+              </Link>
+            </p>
+          </div>
         </div>
       </nav>
 

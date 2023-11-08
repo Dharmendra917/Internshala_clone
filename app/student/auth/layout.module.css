@@ -113,25 +113,31 @@
   background-color: rgba(228, 227, 227, 0.623);
 }
 .menu {
+  border: 1px solid #00044a82;
   position: absolute;
   display: none;
   right: 5%;
   top: 90%;
   padding: 5px 1%;
-  background-color: rgba(245, 245, 245, 0.495);
+  background-color: rgba(245, 245, 245, 0.995);
   margin: 1px;
+  width: 200px;
+  height: 250px;
 }
+
 .menu h5 {
   color: #00044a;
   padding: 5px 10px;
   font-size: 18px;
   position: relative;
+  text-align: center;
+  margin-top: 25px;
 }
 .menu h5::after {
   content: "";
   width: 0%;
   height: 5%;
-  background: linear-gradient(to right, #00044a, #00044a09);
+  background: linear-gradient(to right, #00044a, #00044a9c, #00044a09);
   position: absolute;
   left: 0%;
   bottom: 0%;
@@ -140,4 +146,46 @@
 .menu h5:hover:after {
   width: 100%;
   color: #00044aad;
+}
+.notification_menu {
+  margin: 1px;
+  padding: 4px 6px;
+  width: 350px;
+  height: 400px;
+  background-color: whitesmoke;
+  position: absolute;
+  top: 105%;
+  right: 5%;
+  overflow: hidden;
+}
+.inner_notification_menu {
+  height: 100%;
+  width: 100%;
+  padding: 1px 5px;
+  border: 1px solid #00044a3e;
+  white-space: nowrap;
+  overflow-y: scroll;
+}
+.inner_notification_menu::-webkit-scrollbar {
+  scroll-behavior: smooth;
+}
+.inner_notification_menu h4 {
+  color: #00044aac;
+  border-bottom: 1.6px solid #00044a5d;
+}
+.inner_notification_menu p {
+  border-bottom: 1px solid #00044a5e;
+  font-weight: 600;
+  color: #00044a86;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.inner_notification_menu p .Link {
+  color: #00044a77;
+  transition: 0.2s;
+}
+.inner_notification_menu p .Link:hover {
+  color: #00044aa6;
+  /* border-bottom: 1px solid #00044ab3; */
 }
