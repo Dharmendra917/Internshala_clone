@@ -9,6 +9,7 @@ import Link from "next/link";
 
 const Student = ({ children }) => {
   const [isDivVisible, setisDivVisible] = useState(false);
+  const [isNotification, setisNotification] = useState(false);
   const defref = useRef(null);
 
   // ----------- current student information
@@ -17,6 +18,16 @@ const Student = ({ children }) => {
   );
   const router = useRouter();
   // console.log(isAuthenticated);
+
+  // ---------- notfication visible or none
+  const notificationHandelr = () => {
+    if (isNotification) {
+      setisNotification(false);
+    }
+    if (!isNotification) {
+      setisNotification(true);
+    }
+  };
 
   // ---------- dispaly block or none
   const menuHandler = () => {
@@ -33,6 +44,9 @@ const Student = ({ children }) => {
   const remove = () => {
     if (isDivVisible) {
       setisDivVisible(false);
+    }
+    if (isNotification) {
+      setisNotification(false);
     }
   };
 
@@ -75,7 +89,7 @@ const Student = ({ children }) => {
             </div>
           </div>
           <div className={`${styles.inner_right}`} id={styles.notification}>
-            <i class="ri-notification-fill"></i>
+            <i onClick={notificationHandelr} class="ri-notification-fill"></i>
           </div>
           <div className={`${styles.inner_right} `}>
             <div onClick={menuHandler} className={styles.profile}>
@@ -111,19 +125,12 @@ const Student = ({ children }) => {
           </h5>
         </div>
 
-        <div className={styles.notification_menu}>
+        <div
+          className={isNotification ? styles.notification_menu : ""}
+          style={{ display: isNotification ? "block" : "none" }}
+        >
           <div className={styles.inner_notification_menu}>
             <h4>Notifications</h4>
-            <p>
-              <Link className={`${styles.Link}`} href="#">
-                xyz compnay trying to connect you
-              </Link>
-            </p>
-            <p>
-              <Link className={`${styles.Link}`} href="#">
-                xyz compnay trying to connect you
-              </Link>
-            </p>
             <p>
               <Link className={`${styles.Link}`} href="#">
                 xyz compnay trying to connect you
