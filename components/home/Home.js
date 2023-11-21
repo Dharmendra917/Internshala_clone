@@ -33,7 +33,7 @@ const Home = () => {
           />
         </div>
       </div>
-      <div className={styles.page2}></div>
+      {/* <div className={styles.page2}></div> */}
     </div>
   );
 };
