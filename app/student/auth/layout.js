@@ -95,7 +95,6 @@ const Student = ({ children }) => {
             <div onClick={menuHandler} className={styles.profile}>
               <img
                 src={student && student.avatar.url}
-                // src=""
                 alt="profileImage"
                 className={styles.image}
               />
@@ -131,51 +130,6 @@ const Student = ({ children }) => {
         >
           <div className={styles.inner_notification_menu}>
             <h4>Notifications</h4>
-            <p>
-              <Link className={`${styles.Link}`} href="#">
-                xyz compnay trying to connect you
-              </Link>
-            </p>
-            <p>
-              <Link className={`${styles.Link}`} href="#">
-                xyz compnay trying to connect you
-              </Link>
-            </p>
-            <p>
-              <Link className={`${styles.Link}`} href="#">
-                xyz compnay trying to connect you
-              </Link>
-            </p>
-            <p>
-              <Link className={`${styles.Link}`} href="#">
-                xyz compnay trying to connect you
-              </Link>
-            </p>
-            <p>
-              <Link className={`${styles.Link}`} href="#">
-                xyz compnay trying to connect you
-              </Link>
-            </p>
-            <p>
-              <Link className={`${styles.Link}`} href="#">
-                xyz compnay trying to connect you
-              </Link>
-            </p>
-            <p>
-              <Link className={`${styles.Link}`} href="#">
-                xyz compnay trying to connect you
-              </Link>
-            </p>
-            <p>
-              <Link className={`${styles.Link}`} href="#">
-                xyz compnay trying to connect you
-              </Link>
-            </p>
-            <p>
-              <Link className={`${styles.Link}`} href="#">
-                xyz compnay trying to connect you
-              </Link>
-            </p>
             <p>
               <Link className={`${styles.Link}`} href="#">
                 xyz compnay trying to connect you

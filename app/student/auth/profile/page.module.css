@@ -1,0 +1,135 @@
+.main {
+  font-family: "gilroy";
+  background-color: #eceef3;
+  width: 80%;
+  height: 90vh;
+  margin: 5px 10% 2px 10%;
+  display: flex;
+  flex-direction: row;
+}
+.left {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5%;
+}
+.left h4 {
+  width: 95%;
+  text-align: center;
+  color: #00044a;
+  border-bottom: 2px solid #00044a86;
+  margin-bottom: 5%;
+  font-weight: 650;
+}
+.left h5 {
+  font-weight: 550;
+  color: darkcyan;
+  width: 90%;
+  margin-top: 5%;
+  border-bottom: 2px solid #b1c9ef;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.left h5:hover {
+  color: #00044af1;
+  border-bottom: 2px solid #00044af1;
+  padding-left: 10%;
+}
+.right {
+  width: 70%;
+  height: 100%;
+  border-left: 1px solid rgba(45, 45, 45, 0.598);
+}
+.right .profileCard {
+  /* background-color: goldenrod; */
+  width: 100%;
+  height: 100%;
+}
+.right .topBackground {
+  width: 100%;
+  height: 15%;
+  background-color: darkcyan;
+}
+.right .bottom {
+  padding: 0% 1px 1px 5%;
+  width: 100%;
+  height: 85%;
+}
+.bottom .profileAndName {
+  display: flex;
+  gap: 50px;
+  width: 100%;
+  border-bottom: 1px solid rgb(96, 95, 95);
+  padding-bottom: 1%;
+}
+.image {
+  margin-top: -5%;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  border-image-slice: 1;
+  overflow: hidden;
+  border: 5px solid #eceef3;
+}
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.right .firstLastName {
+  color: rgba(66, 66, 66, 0.856);
+  border-bottom: 2px solid rgb(96, 95, 95);
+  align-self: flex-start;
+  margin-top: 7px;
+  padding-bottom: 5px;
+  font-weight: 600;
+}
+.right .bottom h5 {
+  color: rgba(66, 66, 66, 0.856);
+  font-weight: 600;
+  width: 80%;
+  border-bottom: 1px solid rgb(96, 95, 95);
+  padding-bottom: 5px;
+  margin-top: 4%;
+}
+.right .bottom h6 {
+  width: 80%;
+  color: rgba(66, 66, 66, 0.856);
+  font-weight: 600;
+  border-bottom: 1px solid rgb(96, 95, 95);
+  padding-bottom: 5px;
+  margin-top: 4%;
+}
+.bottom h5:hover {
+  color: rgb(66, 66, 66);
+  border-bottom: 1px solid rgb(96, 95, 95);
+}
+.bottom h6:hover {
+  color: rgb(66, 66, 66);
+  border-bottom: 1px solid rgb(96, 95, 95);
+}
+.bottom button {
+  border: none;
+  background-color: green;
+  color: white;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-weight: 600;
+  margin: 2px;
+}
+.bottom .delete {
+  background-color: red;
+}
+
+/* edit profile ---------------- */
+.editProfile {
+  width: 100%;
+  height: 100%;
+}
+.editProfile input {
+  background-color: #eceef3;
+  border: none;
+  outline: none;
+}
