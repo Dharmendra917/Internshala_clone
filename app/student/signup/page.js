@@ -17,7 +17,7 @@ const page = () => {
     lastname: "",
     email: "",
     password: "",
-    number: "",
+    contact: "",
     city: "",
     gender: "Male",
   });
@@ -31,6 +31,7 @@ const page = () => {
   const signupHandler = (event) => {
     event.preventDefault();
     const newstudent = formdata;
+    console.log(newstudent);
     dispatch(asyncsignupstudent(newstudent));
     // setformdata({
     //   firstname: "",
@@ -92,8 +93,8 @@ const page = () => {
               className={styles.input}
               type="text"
               placeholder="Enter Number"
-              name="number"
-              value={formdata.number}
+              name="contact"
+              value={formdata.contact}
               onChange={changeHandler}
             />
             <input

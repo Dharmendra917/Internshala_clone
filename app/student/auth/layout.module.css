@@ -124,7 +124,24 @@
   width: 200px;
   height: 250px;
 }
-
+.picAndName {
+  border-bottom: 1px solid #00044ad0;
+  padding-bottom: 5px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.picAndName .img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.picAndName .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .menu h5 {
   color: #00044a;
   padding: 5px 10px;

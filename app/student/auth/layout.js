@@ -107,6 +107,12 @@ const Student = ({ children }) => {
           className={isDivVisible ? styles.menu : ""}
           style={{ display: isDivVisible ? "block" : "none" }}
         >
+          <div className={styles.picAndName}>
+            <div className={styles.img}>
+              <img src={student && student.avatar.url} alt="avatar" />
+            </div>
+            <h6>{student && student.firstname}</h6>
+          </div>
           <h5>
             <Link className={styles.Link} href="/student/auth/profile">
               Profile

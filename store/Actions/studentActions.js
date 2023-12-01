@@ -5,6 +5,7 @@ import {
   iserror,
   removeerror,
 } from "../Reducers/studentReducer";
+import { current } from "@reduxjs/toolkit";
 
 export const asynccurrentstudent = () => async (dispatch, getState) => {
   try {
@@ -38,6 +39,16 @@ export const asyncsignoutstudent = () => async (dispatch, getState) => {
   try {
     const { data } = await axios.get("/student/signout");
     dispatch(removestudent());
+  } catch (error) {
+    dispatch(iserror(error.response.data.message));
+  }
+};
+
+export const asyncupdatestudent = (student) => async (dispatch, getState) => {
+  try {
+    const { _id } = getState().studentReducer.student;
+    const { data } = await axios.post("/student/update/" + _id, student);
+    dispatch(asynccurrentstudent());
   } catch (error) {
     dispatch(iserror(error.response.data.message));
   }
