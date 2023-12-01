@@ -4,7 +4,11 @@ import React from "react";
 import styles from "@/app/student/auth/profile/page.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { asyncupdatestudent } from "@/store/Actions/studentActions";
+import {
+  asyncavatarstudent,
+  asynccurrentstudent,
+  asyncupdatestudent,
+} from "@/store/Actions/studentActions";
 
 const profile = () => {
   const [profile, setProfile] = useState(true);
@@ -50,6 +54,22 @@ const profile = () => {
     if (editProfile && !profile) {
       setProfile(true);
     }
+    setFormData({
+      firstname: "",
+      lastname: "",
+      contact: "",
+      city: "",
+      gender: "Male",
+      email: "",
+    });
+  };
+  //  avatarHandler ------------------
+  const avatarHandler = (e) => {
+    e.preventDefault();
+    const formdata = new FormData(e.target);
+    formdata.set("avatar", e.target.avatar.files[0]);
+    console.log(formdata);
+    dispatch(asyncavatarstudent(formdata));
   };
   // Edit Resume Handler ---------- // InComplete
   const resumeHandler = () => {
@@ -76,7 +96,10 @@ const profile = () => {
                 <div className={`${styles.image}`}>
                   <img src={student && student.avatar.url} alt="profileImage" />
                 </div>
-
+                <form onSubmit={avatarHandler} encType="multipart/form-data">
+                  <input type="file" name="avatar" />
+                  <button>submit</button>
+                </form>
                 <h2 className={styles.firstLastName}>
                   {` ${student && student.firstname} `}
                 </h2>
@@ -152,10 +175,39 @@ const profile = () => {
                   onChange={changeHandler}
                 />
               </h5>
+
               <h5>
-                Gender :
-                <input type="text" placeholder="Male" name="gender" />
+                <div className={styles.gender}>
+                  <input
+                    type="radio"
+                    id="male"
+                    name="gender"
+                    value="Male"
+                    onChange={changeHandler}
+                    checked={formdata.gender === "Male"}
+                  />
+                  <label for="male">Male</label>
+                  <input
+                    type="radio"
+                    id="female"
+                    name="gender"
+                    value="Female"
+                    onChange={changeHandler}
+                    checked={formdata.gender === "Female"}
+                  />
+                  <label for="female">Female</label>
+                  <input
+                    type="radio"
+                    id="other"
+                    name="gender"
+                    value="Other"
+                    onChange={changeHandler}
+                    checked={formdata.gender === "Other"}
+                  />
+                  <label for="other">Other</label>
+                </div>
               </h5>
+
               <button onClick={studentUpdateHandler}>Update</button>
             </div>
           </div>

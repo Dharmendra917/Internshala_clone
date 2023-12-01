@@ -144,3 +144,14 @@
 .editProfile h2 input {
   width: 100%;
 }
+.gender {
+  display: flex;
+  gap: 5px;
+  color: rgba(66, 66, 66, 0.856);
+  opacity: 0.6;
+  font-weight: 600;
+}
+.editProfile .gender input {
+  background-color: green;
+  width: 8%;
+}

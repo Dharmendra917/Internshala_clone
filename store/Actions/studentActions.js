@@ -53,3 +53,13 @@ export const asyncupdatestudent = (student) => async (dispatch, getState) => {
     dispatch(iserror(error.response.data.message));
   }
 };
+
+export const asyncavatarstudent = (formdata) => async (dispatch, getState) => {
+  try {
+    const { _id } = getState().studentReducer.student;
+    const { data } = await axios.post("/student/avatar/" + _id, formdata);
+    dispatch(asynccurrentstudent());
+  } catch (error) {
+    dispatch(iserror(error.response.data.message));
+  }
+};

@@ -33,15 +33,15 @@ const page = () => {
     const newstudent = formdata;
     console.log(newstudent);
     dispatch(asyncsignupstudent(newstudent));
-    // setformdata({
-    //   firstname: "",
-    //   lastname: "",
-    //   email: "",
-    //   password: "",
-    //   number: "",
-    //   city: "",
-    //   gender: "Male",
-    // });
+    setformdata({
+      firstname: "",
+      lastname: "",
+      email: "",
+      password: "",
+      number: "",
+      city: "",
+      gender: "Male",
+    });
   };
 
   const { isAuthenticated } = useSelector((state) => state.studentReducer);
