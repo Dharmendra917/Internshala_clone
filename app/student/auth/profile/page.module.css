@@ -35,7 +35,6 @@
 .left h5:hover {
   color: #00044af1;
   border-bottom: 2px solid #00044af1;
-  padding-left: 10%;
 }
 .right {
   width: 70%;
@@ -154,4 +153,7 @@
 .editProfile .gender input {
   background-color: green;
   width: 8%;
+}
+.hidden {
+  display: none;
 }

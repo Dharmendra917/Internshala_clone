@@ -71,6 +71,15 @@ const profile = () => {
     console.log(formdata);
     dispatch(asyncavatarstudent(formdata));
   };
+  // to click profileImage imageInput field automically click
+  const profileClickHandler = () => {
+    document.querySelector("#chooseFile").click();
+  };
+
+  const onChangeHandler = () => {
+    document.querySelector("#hidden button").click();
+  };
+
   // Edit Resume Handler ---------- // InComplete
   const resumeHandler = () => {
     alert("sorry! , we are working on this functionality");
@@ -96,9 +105,20 @@ const profile = () => {
                 <div className={`${styles.image}`}>
                   <img src={student && student.avatar.url} alt="profileImage" />
                 </div>
-                <form onSubmit={avatarHandler} encType="multipart/form-data">
-                  <input type="file" name="avatar" />
-                  <button>submit</button>
+                {/* upload profileImage with the help of form tag */}
+                <form
+                  id="hidden"
+                  className={styles.hidden}
+                  onSubmit={avatarHandler}
+                  encType="multipart/form-data"
+                >
+                  <input
+                    id="chooseFile"
+                    type="file"
+                    name="avatar"
+                    onChange={onChangeHandler}
+                  />
+                  <button type="submit">submit</button>
                 </form>
                 <h2 className={styles.firstLastName}>
                   {` ${student && student.firstname} `}
@@ -123,7 +143,10 @@ const profile = () => {
             <div className={styles.topBackground}></div>
             <div className={styles.bottom}>
               <div className={styles.profileAndName}>
-                <div className={`${styles.image}`}>
+                <div
+                  onClick={profileClickHandler}
+                  className={`${styles.image}`}
+                >
                   <img src={student && student.avatar.url} alt="profileImage" />
                 </div>
                 <h2 className={styles.firstLastName}>
