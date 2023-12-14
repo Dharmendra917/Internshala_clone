@@ -6,13 +6,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import {
   asyncavatarstudent,
-  asynccurrentstudent,
   asyncupdatestudent,
+  asyncresetpassword,
 } from "@/store/Actions/studentActions";
 
 const profile = () => {
   const [profile, setProfile] = useState(true);
   const [editProfile, seteditProfile] = useState(false);
+  const [resetPassword, setresetPassword] = useState(false);
+  const { student } = useSelector((state) => state.studentReducer);
   const [formdata, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -21,7 +23,6 @@ const profile = () => {
     gender: "",
     email: "",
   });
-  const { student } = useSelector((state) => state.studentReducer);
 
   // Show profile div --------------
   const profileHandler = () => {
@@ -29,13 +30,25 @@ const profile = () => {
     if (editProfile) {
       seteditProfile(false);
     }
+    if (resetPassword) {
+      setresetPassword(false);
+    }
   };
 
   // editProfileHandler -----------
   const editProfileHandler = () => {
+    setFormData({
+      firstname: student.firstname,
+      lastname: student.lastname,
+      contact: student.contact,
+      city: student.city,
+      gender: student.gender,
+      email: student.email,
+    });
     seteditProfile(true);
-    if (profile) {
+    if (profile || resetPassword) {
       setProfile(false);
+      setresetPassword(false);
     }
   };
 
@@ -47,12 +60,14 @@ const profile = () => {
     setFormData({ ...formdata, [name]: value });
   };
   const dispatch = useDispatch();
+
   const studentUpdateHandler = () => {
     const newstudent = formdata;
     console.log(newstudent);
     dispatch(asyncupdatestudent(newstudent));
     if (editProfile && !profile) {
       setProfile(true);
+      seteditProfile(false);
     }
     setFormData({
       firstname: "",
@@ -75,7 +90,6 @@ const profile = () => {
   const profileClickHandler = () => {
     document.querySelector("#chooseFile").click();
   };
-
   const onChangeHandler = () => {
     document.querySelector("#hidden button").click();
   };
@@ -84,7 +98,59 @@ const profile = () => {
   const resumeHandler = () => {
     alert("sorry! , we are working on this functionality");
   };
+  // Password Reset -------------
+  const resetHandler = () => {
+    setresetPassword(true);
+    if (profile || editProfile) {
+      setProfile(false);
+      seteditProfile(false);
+      // console.log("correct");
+    }
+  };
+  const [misMatch, setmisMatch] = useState("");
 
+  const changePasswordHandler = (e) => {
+    e.preventDefault();
+    const pass = e.target[0].value;
+    const renewpassword = e.target[1].value;
+    if (pass === renewpassword) {
+      const password = {
+        password: pass,
+      };
+      dispatch(asyncresetpassword(password));
+    } else {
+      document.querySelector(".misMatch").style.color = "red";
+      setmisMatch("Password mismatch");
+      setTimeout(() => {
+        // this line credit by pranshu gupta ji from satna
+        document.querySelector(".misMatch").style.display = "none";
+      }, 5000);
+      document.querySelector(".misMatch").style.display = "block";
+    }
+  };
+
+  const off = () => {
+    document.querySelector(".off").style.display = "none";
+    document.querySelector(".on").style.display = "initial";
+    document.querySelector(".inp1").type = "text";
+  };
+
+  const on = () => {
+    document.querySelector(".off").style.display = "initial";
+    document.querySelector(".on").style.display = "none";
+    document.querySelector(".inp1").type = "password";
+  };
+  const offf = () => {
+    document.querySelector(".offf").style.display = "none";
+    document.querySelector(".onn").style.display = "initial";
+    document.querySelector(".inp2").type = "text";
+  };
+
+  const onn = () => {
+    document.querySelector(".offf").style.display = "initial";
+    document.querySelector(".onn").style.display = "none";
+    document.querySelector(".inp2").type = "password";
+  };
   return (
     <>
       <div className={`${styles.main}`}>
@@ -93,6 +159,7 @@ const profile = () => {
           <h5 onClick={profileHandler}>Profile</h5>
           <h5 onClick={editProfileHandler}>Edit Profile</h5>
           <h5 onClick={resumeHandler}>Edit Resume</h5>
+          <h5 onClick={resetHandler}>Reset Password</h5>
         </div>
         <div className={styles.right}>
           <div
@@ -145,7 +212,7 @@ const profile = () => {
               <div className={styles.profileAndName}>
                 <div
                   onClick={profileClickHandler}
-                  className={`${styles.image}`}
+                  className={`${styles.image} ${styles.hover}`}
                 >
                   <img src={student && student.avatar.url} alt="profileImage" />
                 </div>
@@ -233,6 +300,50 @@ const profile = () => {
 
               <button onClick={studentUpdateHandler}>Update</button>
             </div>
+          </div>
+
+          <div
+            className={`  ${styles.resetPasswordPage}     `}
+            style={{ display: resetPassword ? "block" : "none" }}
+          >
+            <form onSubmit={changePasswordHandler}>
+              <h3>Reset Your Password</h3>
+              <p>
+                Password must atleast more than 6 letter,include capital letter,{" "}
+                <br /> number and special character.{" "}
+              </p>
+              <p className="misMatch">{misMatch}</p>
+              <h6>
+                <input
+                  className="inp1"
+                  type="password"
+                  placeholder="Enter New Password"
+                  name="newpassword"
+                />
+                <i onClick={off} class="ri-eye-off-fill off"></i>
+                <i
+                  onClick={on}
+                  class="ri-eye-fill on"
+                  style={{ display: "none" }}
+                ></i>
+              </h6>
+              <h6>
+                <input
+                  className="inp2"
+                  type="password"
+                  placeholder="Re-Enter New Password"
+                  name="renewpassword"
+                />
+                <i onClick={offf} class="ri-eye-off-fill offf"></i>
+                <i
+                  onClick={onn}
+                  class="ri-eye-fill onn"
+                  style={{ display: "none" }}
+                ></i>
+              </h6>
+
+              <button type="submit">submit</button>
+            </form>
           </div>
         </div>
       </div>

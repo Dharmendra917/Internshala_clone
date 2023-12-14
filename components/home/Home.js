@@ -17,7 +17,7 @@ const Home = () => {
             <h1 className={styles.content_h1}>
               Find Your Next <br /> Dream Job
             </h1>
-            <Link href="#">
+            <Link href="/student">
               <button className={styles.button}>Looking For a Job?</button>
             </Link>
           </div>
