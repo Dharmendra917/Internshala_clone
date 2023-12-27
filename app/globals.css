@@ -19,6 +19,7 @@ body {
 /* for link  */
 .link {
   text-decoration: none;
+  color: rgb(43, 43, 220);
 }
 .forget {
   align-self: flex-end;
