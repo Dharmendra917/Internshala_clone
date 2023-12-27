@@ -35,6 +35,11 @@ const page = () => {
     });
   };
 
+  const googleHandler = () => {
+    alert("We are working on it!");
+  };
+
+  // ---------- it push automatically if user loggedin
   const { isAuthenticated } = useSelector((state) => state.studentReducer);
   const router = useRouter();
   useEffect(() => {
@@ -78,14 +83,14 @@ const page = () => {
                 value={student.password}
                 onChange={changeHandler}
               />
-              <Link className="link forget" href="#">
+              <Link className="link forget" href="/student/forgot">
                 {" "}
                 {/* use global css */}
                 Forgot your password?
               </Link>
               <button className={styles.button}>SIGN IN</button>
             </form>
-            <button className={styles.button}>
+            <button onClick={googleHandler} className={styles.button}>
               <i class="ri-google-fill"></i> SIGN IN WITH GOOGLE
             </button>
             <h6 className={styles.registered}>

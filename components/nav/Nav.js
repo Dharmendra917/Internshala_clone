@@ -2,6 +2,9 @@ import React from "react";
 import styles from "./Nav.module.css";
 import Link from "next/link";
 const Nav = () => {
+  const employeeHandler = () => {
+    alert("we are working on it!");
+  };
   return (
     <div className={styles.nav}>
       <Link className="link" href="/">
@@ -25,7 +28,9 @@ const Nav = () => {
         <Link className="link" href="#">
           <li className={styles.li}>Contact</li>
         </Link>
-        <button className={styles.button}>Post a Job</button>
+        <button onClick={employeeHandler} className={styles.button}>
+          Post a Job
+        </button>
         <Link href="/student">
           <button className={`${styles.w} ${styles.button} `}>
             Want a Job

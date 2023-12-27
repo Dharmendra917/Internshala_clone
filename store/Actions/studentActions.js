@@ -6,6 +6,7 @@ import {
   removeerror,
 } from "../Reducers/studentReducer";
 import { current } from "@reduxjs/toolkit";
+import { data } from "autoprefixer";
 
 export const asynccurrentstudent = () => async (dispatch, getState) => {
   try {
@@ -74,16 +75,21 @@ export const asyncresetpassword = (password) => async (dispatch, getState) => {
     dispatch(iserror(error.response.data.message));
   }
 };
-// export const asyncresetpassword =
-//   (newpassword) => async (dispatch, getState) => {
-//     try {
-//       const { _id } = getState().studentReducer.student;
-//       const { data } = await axios.post(
-//         "/student/reset-link/" + _id,
-//         newpassword
-//       );
-//       dispatch(asynccurrentstudent());
-//     } catch (error) {
-//       dispatch(iserror(error.response.data.message));
-//     }
-//   };
+
+export const asyncsendmailer = (email) => async (dispatch, getState) => {
+  try {
+    const data = await axios.post("/student/send-mail/", email);
+    dispatch(asynccurrentstudent());
+  } catch (error) {
+    dispatch(iserror(error.response.data.message));
+  }
+};
+
+export const asyncotpsender = (otp) => async (dispatch, getState) => {
+  try {
+    const data = await axios.post("/student/forget-link/", otp);
+    dispatch(asynccurrentstudent());
+  } catch (error) {
+    dispatch(iserror(error.response.data.message));
+  }
+};
