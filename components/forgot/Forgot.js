@@ -42,12 +42,12 @@ const Forgot = () => {
 
     await dispatch(asyncsendmailer(data));
 
-    if (errors.length === 2) {
+    if (errors.length === 1) {
       setSection(false);
       setError("");
     } else {
       setSection(true);
-      setError(errors[errors.length - 1]);
+      setError(errors);
     }
 
     setEmail("");
